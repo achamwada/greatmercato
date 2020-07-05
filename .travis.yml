@@ -10,13 +10,12 @@ script:
 before_deploy:
   - yarn global add travis-ci-cloudfront-invalidation
   - yarn run build
-  - aws s3 -a $AWS_ACCESS_KEY_ID -s $AWS_SECRET_ACCESS_KEY rm s3://greatmercato.com --recursive
 deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: $S3_BUCKET
-  skip_cleanup: true
+  skip_cleanup: false
   local-dir: build
   region: $AWS_REGION
   on:
