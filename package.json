@@ -1,0 +1,31 @@
+{
+  "name": "simple-shopping-cart-app-aws-cloudfront",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alexander Chamwada <alexanderchamwada@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --config config/webpack/webpack.dev.config.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-mobx": "^0.0.4",
+    "styled-components": "^5.1.1"
+  }
+}
