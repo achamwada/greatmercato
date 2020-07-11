@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const Container = styled.section`
   display: flex;
@@ -7,7 +7,7 @@ const Container = styled.section`
   justify-content: center;
   align-content: center;
   height: 90vh;
-`
+`;
 
 const MessageBox = styled.div`
   padding: 5rem;
@@ -15,14 +15,19 @@ const MessageBox = styled.div`
   font-size: 3rem;
   color: #ccc;
   text-align: center;
-`
-MessageBox.displayName = 'MessageBox'
-const App = () => {
+`;
+MessageBox.displayName = 'MessageBox';
+const App: React.FC = () => {
   return (
     <Container>
       <MessageBox>Coming soon!</MessageBox>
     </Container>
-  )
-}
+  );
+};
 
-export default App
+export default App;
+/**
+|--------------------------------------------------
+| 
+|--------------------------------------------------
+*/

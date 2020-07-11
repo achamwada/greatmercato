@@ -1,10 +1,10 @@
-const path = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = () => {
   return {
     entry: {
-      app: path.resolve(process.cwd(), 'src/index.js'),
+      app: path.resolve(process.cwd(), 'src/index.tsx'),
     },
     output: {
       filename: '[name].[hash].bundle.js',
@@ -22,14 +22,18 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
-          use: 'babel-loader',
+          test: /\.tsx?$/,
+          exclude: /(node_modules|bower_components)/,
+          rules: [{ use: 'babel-loader' }],
         },
         {
           test: /\.(png|jpe?g|json|svg)/,
           use: 'file-loader',
         },
       ],
+    },
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -40,5 +44,5 @@ module.exports = () => {
       }),
       new CleanWebpackPlugin(),
     ],
-  }
-}
+  };
+};
