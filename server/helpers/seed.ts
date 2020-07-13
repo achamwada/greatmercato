@@ -75,7 +75,7 @@ class Seeder {
       (): IProduct => {
         return {
           title: faker.lorem.sentence(),
-          hero_img: faker.lorem.sentence(),
+          hero_img: faker.image.image(),
           price: Number(faker.finance.amount(100)),
           description: faker.lorem.sentence(),
           excerpt: faker.lorem.sentence(),
@@ -88,8 +88,8 @@ class Seeder {
           vat: Number(faker.finance.amount(100)),
           quantity: faker.random.number(10),
           return_policy: faker.lorem.sentence(),
-          condition: faker.lorem.sentence(),
-          location: faker.lorem.sentence(),
+          condition: ['New', 'Used', 'Parts'][Math.floor(Math.random() * 3)],
+          location: faker.address.streetAddress(),
           click_and_collect: faker.random.boolean(),
           product_category: this.productCategoryIDs[
             Math.floor(Math.random() * this.productCategoryIDs.length)
@@ -147,7 +147,7 @@ class Seeder {
           password: faker.internet.password(),
           account_type: faker.random.word(),
           provider: ['Google', 'Facebook', 'Normal'][
-            Math.floor(Math.random() * 4)
+            Math.floor(Math.random() * 3)
           ],
         };
       },
