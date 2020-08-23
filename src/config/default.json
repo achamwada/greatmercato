@@ -1,0 +1,7 @@
+{
+    "mongoDBURI": "mongodb+srv://mmt_user:Zgjoktx069Jl8coE@cluster0-ol4ro.mongodb.net/mmt_db?retryWrites=true&w=majority",
+    "JWT_SECRETv": "jkjwu04672$%777!`~qwefji",
+    "mongoDBURIv": "mongodb+srv://chatUser:2MC4WgPKFLw5squw@cluster0-ol4ro.mongodb.net/test?retryWrites=true&w=majority",
+    "mongoDBURIvc": "mongodb://localhost:27017/ichat",
+    "JWT_SECRET": "jkjwu04672$%777!`~qwefji"
+}
