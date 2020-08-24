@@ -1,4 +1,8 @@
-import { faCartPlus, faList, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCartPlus,
+  faList,
+  faSignOutAlt
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Badge, Divider } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,7 +12,12 @@ import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
+import {
+  createStyles,
+  makeStyles,
+  Theme,
+  useTheme
+} from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -17,11 +26,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
 import React, { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
 import AuthContext from '../../Context/authentication/AuthContext';
 import { AppState } from '../../store/reducers';
 import CartBox from '../cart/CartBox';
-
+import { useRouter } from 'next/router';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -89,13 +97,14 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Header: React.FC<RouteComponentProps> = ({ children, history }) => {
+const Header: React.FC = ({ children }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [currentPage, setCurrentPage] = useState('Shop');
   const cart = useSelector((state: AppState) => state.cart);
   const authCntx = useContext(AuthContext);
+  const router = useRouter();
 
   let { authenticated, loginOutUser } = authCntx;
 
@@ -111,7 +120,7 @@ const Header: React.FC<RouteComponentProps> = ({ children, history }) => {
     {
       pageID: 1,
       title: 'Store Products',
-      url: '/',
+      url: '/products',
       description: 'Products listing',
       icon: <FontAwesomeIcon className={classes.faIcon} icon={faList} />
     },
@@ -172,11 +181,17 @@ const Header: React.FC<RouteComponentProps> = ({ children, history }) => {
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>{theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}</IconButton>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'ltr' ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
         </div>
         <Divider />
         <List>
-          {pages.map(page => (
+          {pages.map((page) => (
             <ListItem
               button
               key={page.pageID}
@@ -185,7 +200,7 @@ const Header: React.FC<RouteComponentProps> = ({ children, history }) => {
                   loginOutUser();
                 } else {
                   setCurrentPage(page.title);
-                  history.push(page.url);
+                  router.push(page.url);
                 }
               }}
             >

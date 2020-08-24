@@ -1,7 +1,6 @@
-import mongoose from 'mongoose';
-const schema = mongoose.Schema;
+import mongoose, { Schema } from 'mongoose';
 
-const ProductSchema = schema({
+const ProductSchema = new Schema({
   img: String,
   title: String,
   description: String,
@@ -12,12 +11,13 @@ const ProductSchema = schema({
   seller: String,
   date_created: {
     type: Date,
-    default: Date.now(),
+    default: Date.now()
   },
   amount: {
     type: Number,
-    default: 1,
-  },
+    default: 1
+  }
 });
 
-module.exports = mongoose.model('product', ProductSchema);
+export default mongoose.models.Product ||
+  mongoose.model('product', ProductSchema);

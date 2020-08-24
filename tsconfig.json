@@ -66,7 +66,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "shop/src/App.tsx", "src/pages/__app.jsx"
+    "**/*.tsx", "shop/src/App.tsx", "src/pages/__app.jsx", "src/models/Product.js"
   ],
   "exclude": [
     "node_modules"
