@@ -11,7 +11,7 @@ const handler = async (req, res) => {
     let products = await Products.find({});
     return res.status(200).json({ products });
   } catch (error) {
-    return res.status(500).json({ msg: 'server error', error: error.msg });
+    return res.status(301).json({ msg: 'server error', error: error.msg });
   }
 };
 
